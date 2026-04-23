@@ -1,0 +1,15 @@
+{
+  "host": "example.com",
+  "port": 22,
+  "username": "deploy-user",
+  "password": "replace-me",
+  "remotePath": "/var/www/html/morsen",
+  "localRoot": ".",
+  "paths": [
+    "index.html",
+    "styles",
+    "js",
+    "data",
+    "docs"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "morsen",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy:sftp": "node scripts/deploy-sftp.mjs",
+    "deploy:sftp:dry": "node scripts/deploy-sftp.mjs --dry-run",
+    "deploy:sftp:test": "node scripts/deploy-sftp.mjs --test-connection"
+  },
+  "dependencies": {
+    "ssh2-sftp-client": "^11.0.0"
+  }
+}
