@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="app.title">Morsen Trainer</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/themes.css">
+</head>
+<body>
+  <div class="bg-orbit bg-a" aria-hidden="true"></div>
+  <div class="bg-orbit bg-b" aria-hidden="true"></div>
+  <main class="app-shell" id="app">
+    <header class="topbar card">
+      <div>
+        <p class="eyebrow" data-i18n="header.eyebrow">Morse Trainer</p>
+        <h1>Morsen</h1>
+      </div>
+      <div class="profile-tools">
+        <label for="profile-select" data-i18n="profile.label">Profile</label>
+        <select id="profile-select" aria-label="Choose profile" data-i18n-aria-label="profile.choose"></select>
+        <button id="profile-new" type="button" data-i18n="profile.new">New</button>
+        <button id="profile-rename" type="button" data-i18n="profile.rename">Rename</button>
+        <button id="profile-delete" type="button" class="danger" data-i18n="profile.delete">Delete</button>
+        <label for="language-select" data-i18n="language.label">Language</label>
+        <select id="language-select" aria-label="Select language" data-i18n-aria-label="language.select">
+          <option value="en" data-i18n="language.en">English</option>
+          <option value="de" data-i18n="language.de">Deutsch</option>
+        </select>
+      </div>
+    </header>
+
+    <section class="control-grid card" aria-label="Training controls" data-i18n-aria-label="controls.aria">
+      <label><span data-i18n="controls.mode">Mode</span>
+        <select id="mode-select">
+          <option value="decode" data-i18n="mode.decode">Decode</option>
+          <option value="encode" data-i18n="mode.encode">Encode</option>
+          <option value="mixed" data-i18n="mode.mixed">Mixed</option>
+          <option value="weakspot" data-i18n="mode.weakspot">Weak Spot</option>
+        </select>
+      </label>
+      <label><span data-i18n="controls.output">Output</span>
+        <select id="output-select">
+          <option value="audio-light" data-i18n="output.audioLight">Audio + Light</option>
+          <option value="audio" data-i18n="output.audio">Audio only</option>
+          <option value="light" data-i18n="output.light">Light only</option>
+        </select>
+      </label>
+      <label><span data-i18n="controls.audioStyle">Audio Style</span>
+        <select id="audio-style">
+          <option value="classic" data-i18n="audio.classic">Classic Tone</option>
+          <option value="soft-click" data-i18n="audio.softClick">Soft Click</option>
+          <option value="hard-click" data-i18n="audio.hardClick">Hard Click</option>
+        </select>
+      </label>
+      <label><span data-i18n="controls.visualStyle">Visual Style</span>
+        <select id="visual-style">
+          <option value="led" data-i18n="visual.led">Single LED</option>
+          <option value="flash" data-i18n="visual.flash">Screen Pulse</option>
+        </select>
+      </label>
+      <label><span data-i18n="controls.difficulty">Difficulty</span>
+        <select id="difficulty-select">
+          <option value="auto" data-i18n="difficulty.auto">Auto</option>
+          <option value="single" data-i18n="difficulty.single">Single character</option>
+          <option value="pair" data-i18n="difficulty.pair">Two characters</option>
+          <option value="group" data-i18n="difficulty.group">Character group</option>
+          <option value="word" data-i18n="difficulty.word">Word copy</option>
+        </select>
+      </label>
+      <label><span data-i18n="controls.wpm">WPM</span>
+        <input id="wpm" type="range" min="8" max="35" value="15">
+      </label>
+      <label><span data-i18n="controls.farnsworth">Farnsworth</span>
+        <input id="effective-wpm" type="range" min="5" max="25" value="8">
+      </label>
+      <p class="control-help" data-i18n="controls.farnsworthHelp">Farnsworth keeps character speed high but adds longer gaps between characters/words to make copying easier.</p>
+      <button id="start-btn" type="button" class="accent" data-i18n="controls.start">Start Round</button>
+      <button id="stop-btn" type="button" data-i18n="controls.stop">Stop</button>
+    </section>
+
+    <section class="trainer-grid">
+      <article class="trainer card">
+        <div class="signal-head">
+          <h2 id="prompt-label" data-i18n="trainer.pressStart">Press Start</h2>
+          <p id="hint-line" data-i18n="trainer.decodeHint">Decode mode: listen/watch and type the symbol.</p>
+        </div>
+        <div class="signal-area" id="signal-area">
+          <div id="led-indicator" class="led" aria-label="Signal indicator" data-i18n-aria-label="trainer.signalIndicator"></div>
+          <div id="flash-overlay" class="flash" aria-hidden="true"></div>
+          <button id="key-pad" type="button" class="key-pad" data-i18n="trainer.holdToKey">Hold to key (mouse/touch)</button>
+        </div>
+        <div class="input-row">
+          <label for="text-answer" data-i18n="trainer.answer">Answer</label>
+          <input id="text-answer" type="text" maxlength="12" autocomplete="off" spellcheck="false">
+          <button id="submit-answer" type="button" data-i18n="trainer.submit">Submit</button>
+          <button id="clear-keying" type="button" data-i18n="trainer.clearKeying">Clear Keying</button>
+        </div>
+        <p id="live-keying" class="mono" aria-live="polite"></p>
+      </article>
+
+      <aside class="status card" aria-label="Training status" data-i18n-aria-label="status.aria">
+        <h2 data-i18n="status.session">Session</h2>
+        <dl>
+          <dt data-i18n="status.level">Level</dt><dd id="stat-level">1</dd>
+          <dt data-i18n="status.difficulty">Difficulty</dt><dd id="stat-difficulty">-</dd>
+          <dt data-i18n="status.accuracy">Accuracy</dt><dd id="stat-accuracy">0%</dd>
+          <dt data-i18n="status.rounds">Rounds</dt><dd id="stat-rounds">0</dd>
+          <dt data-i18n="status.weakSpot">Weak Spot</dt><dd id="stat-weak">-</dd>
+        </dl>
+        <div class="small-controls">
+          <button id="export-data" type="button" data-i18n="status.export">Export Profile</button>
+          <label class="file-input" data-i18n="status.import">Import
+            <input id="import-data" type="file" accept="application/json">
+          </label>
+        </div>
+      </aside>
+    </section>
+
+    <section class="docs card" id="docs">
+      <div class="docs-head">
+        <h2 data-i18n="docs.title">Morse Reference</h2>
+        <a id="docs-link" href="docs/reference.html" target="_blank" rel="noopener" data-i18n="docs.open">Open Full Docs</a>
+      </div>
+      <iframe id="docs-frame" title="Morse reference" src="docs/reference.html" data-i18n-title="docs.iframeTitle"></iframe>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

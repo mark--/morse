@@ -1,0 +1,68 @@
+:root {
+  --theme-bg-start: #e3edee;
+  --theme-bg-end: #f5f9f6;
+  --theme-accent: #0a7f72;
+  --theme-accent-2: #df5a45;
+}
+
+body {
+  background: linear-gradient(155deg, var(--theme-bg-start), var(--theme-bg-end));
+}
+
+.bg-orbit {
+  position: fixed;
+  width: 44vmax;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(18px);
+  pointer-events: none;
+  opacity: 0.32;
+  z-index: -1;
+}
+
+.bg-a {
+  top: -16vmax;
+  left: -14vmax;
+  background: radial-gradient(circle at center, #93d9cf, rgba(147, 217, 207, 0));
+}
+
+.bg-b {
+  right: -15vmax;
+  bottom: -20vmax;
+  background: radial-gradient(circle at center, #ffd4b4, rgba(255, 212, 180, 0));
+}
+
+h1,
+h2 {
+  font-family: "Bahnschrift", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+button.accent {
+  color: #ffffff;
+  background: linear-gradient(130deg, var(--theme-accent), #139b8b);
+}
+
+a {
+  color: #0d776a;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    animation: rise-in 320ms ease-out both;
+  }
+
+  .card:nth-of-type(2) { animation-delay: 45ms; }
+  .card:nth-of-type(3) { animation-delay: 80ms; }
+
+  @keyframes rise-in {
+    from {
+      transform: translateY(8px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

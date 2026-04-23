@@ -1,0 +1,58 @@
+{
+  "levels": [
+    {
+      "id": 1,
+      "name": {
+        "en": "Starter",
+        "de": "Einstieg"
+      },
+      "symbols": ["E", "T", "A", "N"],
+      "unlockAccuracy": 0.9
+    },
+    {
+      "id": 2,
+      "name": {
+        "en": "Core 1",
+        "de": "Kern 1"
+      },
+      "symbols": ["I", "M", "S", "O", "R"],
+      "unlockAccuracy": 0.9
+    },
+    {
+      "id": 3,
+      "name": {
+        "en": "Core 2",
+        "de": "Kern 2"
+      },
+      "symbols": ["D", "K", "U", "W", "G"],
+      "unlockAccuracy": 0.88
+    },
+    {
+      "id": 4,
+      "name": {
+        "en": "Core 3",
+        "de": "Kern 3"
+      },
+      "symbols": ["H", "V", "F", "L", "P", "J", "B", "X", "C", "Y", "Q", "Z"],
+      "unlockAccuracy": 0.86
+    },
+    {
+      "id": 5,
+      "name": {
+        "en": "Numbers",
+        "de": "Zahlen"
+      },
+      "symbols": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+      "unlockAccuracy": 0.85
+    },
+    {
+      "id": 6,
+      "name": {
+        "en": "Punctuation",
+        "de": "Satzzeichen"
+      },
+      "symbols": [".", ",", "?", "/", "=", "+", "-", "(", ")"],
+      "unlockAccuracy": 0.82
+    }
+  ]
+}

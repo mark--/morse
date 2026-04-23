@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morse Referenz</title>
+  <style>
+    body { font-family: "Trebuchet MS", sans-serif; margin: 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #c8d4db; padding: 0.4rem 0.5rem; text-align: left; }
+    th { background: #e7eef2; }
+    h1, h2 { margin: 0.8rem 0; }
+    .mono { font-family: "Consolas", monospace; }
+  </style>
+</head>
+<body>
+  <h1>Morse Referenz</h1>
+  <p>Morse Zeitregeln:</p>
+  <ul>
+    <li>dit = 1 Einheit</li>
+    <li>dah = 3 Einheiten</li>
+    <li>Pause innerhalb eines Zeichens = 1 Einheit</li>
+    <li>Pause zwischen Zeichen = 3 Einheiten</li>
+    <li>Pause zwischen Woertern = 7 Einheiten</li>
+  </ul>
+  <h2>Haefige Zeichen</h2>
+  <table>
+    <thead>
+      <tr><th>Zeichen</th><th>Morse</th><th>Gesprochen</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>A</td><td class="mono">.-</td><td>dit-dah</td></tr>
+      <tr><td>B</td><td class="mono">-...</td><td>dah-dit-dit-dit</td></tr>
+      <tr><td>C</td><td class="mono">-.-.</td><td>dah-dit-dah-dit</td></tr>
+      <tr><td>E</td><td class="mono">.</td><td>dit</td></tr>
+      <tr><td>H</td><td class="mono">....</td><td>dit-dit-dit-dit</td></tr>
+      <tr><td>N</td><td class="mono">-.</td><td>dah-dit</td></tr>
+      <tr><td>O</td><td class="mono">---</td><td>dah-dah-dah</td></tr>
+      <tr><td>S</td><td class="mono">...</td><td>dit-dit-dit</td></tr>
+      <tr><td>T</td><td class="mono">-</td><td>dah</td></tr>
+      <tr><td>1</td><td class="mono">.----</td><td>dit-dah-dah-dah-dah</td></tr>
+      <tr><td>5</td><td class="mono">.....</td><td>dit-dit-dit-dit-dit</td></tr>
+      <tr><td>0</td><td class="mono">-----</td><td>dah-dah-dah-dah-dah</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>
